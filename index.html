@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta charset="UTF-8">
+		 <title>SAR Analyzer</title> 
+         <script src="https://cdn.plot.ly/plotly-2.5.1.js" charset="utf-8"></script>
+         <script src="analyzer.js"></script>
+	</head>
+	<body>
+
+	<input type="file" id="myFile" multiple size="50" onchange="run()">
+
+	<div id="output"></div>
+	  
+	<script>
+function run() {
+	console.log(":)")
+    var file_select = document.getElementById("myFile");
+
+    if ('files' in file_select){
+    	if (file_select.files.length == 0) console.log("No files selected")
+    	else if (file_select.files.length > 0) analyze(file_select.files) //Actually do stuff
+    }
+}
+	</script>
+    <div id="tester" style="width:800px;height:600px;"></div>
+	</body>
+</html>
+    

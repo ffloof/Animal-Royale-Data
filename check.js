@@ -1,0 +1,64 @@
+function verify(data){
+	function not_in_range(value, min, max){
+		if(min > value || max < value) return true
+		else return false
+	}
+
+	for(match of data){
+		console.log(match.name)
+
+		//Time checks
+		if(not_in_range(match.start_time, 1630000000.0, 1640000000.0)) 
+			console.log("START_TIME " + match.start_time)
+		if(not_in_range(match.end_time, 1630000000.0, 1640000000.0)) 
+			console.log("END_TIME " + match.end_time)
+		
+		//Data collection check
+		if(!(match.game_started && match.game_ended)) 
+			console.log("PHASE " + match.game_started + " " + match.game_ended)
+		
+		//Position in world checks
+		if(not_in_range(match.flight_start[0], 0.0, 5000.0) || not_in_range(match.flight_start[1], 0.0, 5000.0)) 
+			console.log("FLIGHT_START " + match.flight_start[0] + " " + match.flight_start[1]) 
+		if(not_in_range(match.flight_end[0], 0.0, 5000.0) || not_in_range(match.flight_end[1], 0.0, 5000.0))
+			console.log("FLIGHT_END " + match.flight_end[0] + " " + match.flight_end[1])
+		if(not_in_range(match.last_gas_center[0], 0.0, 5000.0) || not_in_range(match.last_gas_center[1], 0.0, 5000.0))
+			console.log("GAS_CENTER " + match.last_gas_center[0] + " " + match.last_gas_center[1])
+		//Maybe find a check for last gas radius if we ever use it
+
+
+		//Initialize player checks
+		let duplicate_ranks = []
+		for(let i=0; i<64; i++)
+			duplicate_ranks[i] = -1
+
+
+
+		for(let p = 0; p < match.players.length; p++){
+			let player = match.players[p]
+
+			//duplicate rank check
+			if(duplicate_ranks[player.ranking-1] != -1){
+				console.log("RANK[" + p + "] " + player.ranking + " conflict["+duplicate_ranks[player.ranking-1]+"]")
+			} else duplicate_ranks[player.ranking-1] = p
+				
+			//time checks
+			if(not_in_range(player.jump_time, 1630000000.0, 1640000000.0))
+				console.log("JUMP_TIME[" + p + "] " + player.jump_time)
+			if(not_in_range(player.touchdown_time, 1630000000.0, 1640000000.0))
+				console.log("TOUCHDOWN_TIME[" + p + "] " + player.touchdown_time)
+			if(player.ranking != 1)  //winner cant die check
+				if(not_in_range(player.death_time, 1630000000.0, 1640000000.0))
+					console.log("DEATH_TIME[" + p + "] " + player.death_time)
+			
+			//world valid position checks
+			if(not_in_range(player.jump_position[0], 0.0, 5000.0) || not_in_range(player.jump_position[1], 0.0, 5000.0)) 
+				console.log("JUMP_POS[" + p + "] " + player.jump_position[0] + " " + player.jump_position[1])
+			if(not_in_range(player.touchdown_position[0], 0.0, 5000.0) || not_in_range(player.touchdown_position[1], 0.0, 5000.0)) 
+				console.log("LAND_POS[" + p + "] " + player.touchdown_position[0] + " " + player.touchdown_position[1])
+			if(player.ranking != 1)	
+				if(not_in_range(player.death_position[0], 0.0, 5000.0) || not_in_range(player.death_position[1], 0.0, 5000.0)) 
+					console.log("DEAD_POS[" + p + "] " + player.death_position[0] + " " + player.death_position[1])
+		}
+	}
+}

@@ -1,11 +1,27 @@
-
+const ids = ["a1","b2","c3","d4","e5","f6","g7","h8","i9"]
 
 async function analyze(files){
     let data = []
     for (f of files) {
-        data.push(JSON.parse(await f.text()))
+        let match = JSON.parse(await f.text())
+        match.name = f.name
+        data.push(match)
     }
-    game_length(data)
+
+    verify(data)
+
+    /*
+    setTimeout(time_dropped(data), 0)
+    setTimeout(winner_landing_heatmap(data), 0)
+    setTimeout(time_dropped_vs_rank(data), 0)
+    setTimeout(time_alive_vs_rank(data), 0)
+    setTimeout(gas_center_distance_vs_rank(data), 0)
+    setTimeout(landing_heatmap(data), 0)
+    setTimeout(game_length(data), 0)
+    */
+
+    //setTimeout(death_heatmap(data), 0)
+    //setTimeout(jump_heatmap(data), 0)
 }
 
 
@@ -20,7 +36,7 @@ async function game_length(data){
         i+=1
     }
 
-    console.log(x.sort(function(a, b){return a-b}))
+    x.sort(function(a, b){return a-b})
 
     for(let a=0; a<=i; a++){ //Percent of players dropped by this point
         y[a] = a/i * 100
@@ -33,7 +49,7 @@ async function game_length(data){
         type: 'scatter'
     };
 
-    Plotly.newPlot('tester', [trace]);
+    Plotly.newPlot(ids[8], [trace]);
 }
 
 async function time_dropped(data){
@@ -49,7 +65,7 @@ async function time_dropped(data){
         }
     }
 
-    console.log(x.sort(function(a, b){return a-b}))
+    x.sort(function(a, b){return a-b})
 
     for(let a=0; a<=i; a++){ //Percent of players dropped by this point
         y[a] = a/i * 100
@@ -62,7 +78,7 @@ async function time_dropped(data){
         type: 'scatter'
     };
 
-    Plotly.newPlot('tester', [trace]);
+    Plotly.newPlot(ids[0], [trace]);
 }
 
 async function winner_landing_heatmap(data){
@@ -100,21 +116,7 @@ async function winner_landing_heatmap(data){
       showscale: false,
       type: 'histogram2dcontour'
     };
-    let trace3 = {
-      x: x,
-      name: 'x density',
-      marker: {color: 'rgb(102,0,0)'},
-      yaxis: 'y2',
-      type: 'histogram'
-    };
-    let trace4 = {
-      y: y,
-      name: 'y density',
-      marker: {color: 'rgb(102,0,0)'},
-      xaxis: 'x2',
-      type: 'histogram'
-    };
-    let otherdata = [trace1, trace2, trace3, trace4];
+
     let layout = {
       showlegend: false,
       autosize: false,
@@ -145,7 +147,7 @@ async function winner_landing_heatmap(data){
       }
     };
 
-    Plotly.newPlot('tester', otherdata, layout);
+    Plotly.newPlot(ids[1], [trace1, trace2], layout);
 }
 
 async function time_dropped_vs_rank(data){
@@ -189,7 +191,7 @@ async function time_dropped_vs_rank(data){
         type:'scatter'
     }
 
-    Plotly.newPlot('tester', [trace2, trace]);
+    Plotly.newPlot(ids[2], [trace2, trace]);
 }
 
 async function time_alive_vs_rank(data){
@@ -215,7 +217,6 @@ async function time_alive_vs_rank(data){
         average += y[i]
     }
     average /= y.length
-    console.log(average)
 
     //Get average line
     let avg = []
@@ -235,7 +236,7 @@ async function time_alive_vs_rank(data){
         type:'scatter'
     }
 
-    Plotly.newPlot('tester', [trace2, trace]);
+    Plotly.newPlot(ids[3], [trace2, trace]);
 }
 
 async function gas_center_distance_vs_rank(data){
@@ -267,7 +268,6 @@ async function gas_center_distance_vs_rank(data){
         average += y[i]
     }
     average /= y.length
-    console.log(average)
 
     //Get average line
     let avg = []
@@ -287,7 +287,7 @@ async function gas_center_distance_vs_rank(data){
         type:'scatter'
     }
 
-    Plotly.newPlot('tester', [trace2, trace]);
+    Plotly.newPlot(ids[4], [trace2, trace]);
 }
 
 
@@ -377,21 +377,7 @@ async function landing_heatmap(data){
       showscale: false,
       type: 'histogram2dcontour'
     };
-    let trace3 = {
-      x: x,
-      name: 'x density',
-      marker: {color: 'rgb(102,0,0)'},
-      yaxis: 'y2',
-      type: 'histogram'
-    };
-    let trace4 = {
-      y: y,
-      name: 'y density',
-      marker: {color: 'rgb(102,0,0)'},
-      xaxis: 'x2',
-      type: 'histogram'
-    };
-    let otherdata = [trace1, trace2, trace3, trace4];
+    
     let layout = {
       showlegend: false,
       autosize: false,
@@ -422,7 +408,7 @@ async function landing_heatmap(data){
       }
     };
 
-	Plotly.newPlot('tester', otherdata, layout);
+	Plotly.newPlot(ids[5], [trace1, trace2], layout);
 }
 
 //Density of where players die
@@ -432,6 +418,7 @@ async function death_heatmap(data){
     let y=[]
     for (match of data) {
         for (player of match.players){
+            if(ranking == 1) continue;
             x[i] = player.death_position[0]
             y[i] = player.death_position[1]
             i += 1
@@ -460,21 +447,7 @@ async function death_heatmap(data){
       showscale: false,
       type: 'histogram2dcontour'
     };
-    let trace3 = {
-      x: x,
-      name: 'x density',
-      marker: {color: 'rgb(102,0,0)'},
-      yaxis: 'y2',
-      type: 'histogram'
-    };
-    let trace4 = {
-      y: y,
-      name: 'y density',
-      marker: {color: 'rgb(102,0,0)'},
-      xaxis: 'x2',
-      type: 'histogram'
-    };
-    let otherdata = [trace1, trace2, trace3, trace4];
+
     let layout = {
       showlegend: false,
       autosize: false,
@@ -505,7 +478,7 @@ async function death_heatmap(data){
       }
     };
 
-    Plotly.newPlot('tester', otherdata, layout);
+    Plotly.newPlot(ids[6], [trace1, trace2], layout);
 }
 
 //Density of where players land
@@ -543,21 +516,7 @@ async function jump_heatmap(data){
       showscale: false,
       type: 'histogram2dcontour'
     };
-    let trace3 = {
-      x: x,
-      name: 'x density',
-      marker: {color: 'rgb(102,0,0)'},
-      yaxis: 'y2',
-      type: 'histogram'
-    };
-    let trace4 = {
-      y: y,
-      name: 'y density',
-      marker: {color: 'rgb(102,0,0)'},
-      xaxis: 'x2',
-      type: 'histogram'
-    };
-    let otherdata = [trace1, trace2, trace3, trace4];
+
     let layout = {
       showlegend: false,
       autosize: false,
@@ -588,5 +547,5 @@ async function jump_heatmap(data){
       }
     };
 
-    Plotly.newPlot('tester', otherdata, layout);
+    Plotly.newPlot(ids[7], [trace1, trace2], layout);
 }

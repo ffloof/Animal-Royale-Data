@@ -10,7 +10,7 @@ async function analyze(files){
 
     verify(data)
 
-    /*
+    
     setTimeout(time_dropped(data), 0)
     setTimeout(winner_landing_heatmap(data), 0)
     setTimeout(time_dropped_vs_rank(data), 0)
@@ -18,7 +18,7 @@ async function analyze(files){
     setTimeout(gas_center_distance_vs_rank(data), 0)
     setTimeout(landing_heatmap(data), 0)
     setTimeout(game_length(data), 0)
-    */
+    
 
     //setTimeout(death_heatmap(data), 0)
     //setTimeout(jump_heatmap(data), 0)
@@ -31,7 +31,6 @@ async function game_length(data){
 
     let i = 0
     for (match of data) {
-        if(match.end_time - match.start_time > 450) continue
         x[i] = match.end_time - match.start_time
         i+=1
     }
@@ -59,7 +58,6 @@ async function time_dropped(data){
     let i = 0
     for (match of data) {
         for (player of match.players){
-            if(player.jump_time < 1.0 || player.jump_time - match.start_time > 200) continue 
             x[i] = player.jump_time - match.start_time
             i+=1
         }
@@ -162,7 +160,6 @@ async function time_dropped_vs_rank(data){
 
     for (match of data) {
         for (player of match.players){
-            if (player.jump_time < 1.0 || player.touchdown_time < 1.0) continue
             y[player.ranking-1] += player.jump_time - match.start_time
             y2[player.ranking-1] += player.touchdown_time - match.start_time
         }
@@ -171,10 +168,10 @@ async function time_dropped_vs_rank(data){
     for(let i=0; i<y.length;i++){
         y[i] /= data.length
         y2[i] /= data.length
-        if(i==1||i==0) {
-            y[i] /= 2
-            y2[i] /= 2
-        }
+        //if(i==1||i==0) {
+        //    y[i] /= 2
+        //    y2[i] /= 2
+        //}
     }
 
     let trace = {

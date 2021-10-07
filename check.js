@@ -1,3 +1,18 @@
+/*
+check.js verify() loops through all the data inputed and will output what errors are found in the data collected.
+
+There are two types errors, that are classified as errors and outliers. 
+
+Errors are certainly wrong and will skew data but occasionally happen just do to the nature of the data collection process, 
+while outliers are less certain and might be wrong but need to be validated manually as they could be legitimate data being flagged.
+
+The two types will output different names an ERROR_NAME made of capital letters, while outliers will have a lower case outlier_name.
+
+Errors will always be printed but outliers can be disabled by setting the flag below to false.
+*/
+
+const OUTLIER_CHECK = true
+
 function verify(data){
 	function not_in_range(value, min, max){
 		if(min > value || max < value) return true
@@ -29,15 +44,17 @@ function verify(data){
 			console.log("FLIGHT_END " + match.flight_end[0] + " " + match.flight_end[1])
 		if(not_in_range(match.last_gas_center[0], 0.0, 5000.0) || not_in_range(match.last_gas_center[1], 0.0, 5000.0))
 			console.log("GAS_CENTER " + match.last_gas_center[0] + " " + match.last_gas_center[1])
-		//Maybe find a check for last gas radius if we ever use it
+
+		if(OUTLIER_CHECK){
+			if(not_in_range((match.flight_end - match.flight_start), 300.0, 420.0))
+				console.log("match_length " + (match.flight_end - match.flight_start))	
+		}
 
 
 		//Initialize player checks
 		let duplicate_ranks = []
 		for(let i=0; i<64; i++)
 			duplicate_ranks[i] = -1
-
-
 
 		for(let p = 0; p < match.players.length; p++){
 			let player = match.players[p]
@@ -77,8 +94,6 @@ function verify(data){
 				}
 			}
 			
-			
-
 			//world valid position checks
 			if(not_in_range(player.jump_position[0], 0.0, 5000.0) || not_in_range(player.jump_position[1], 0.0, 5000.0)) 
 				console.log("JUMP_POS[" + p + "] " + player.jump_position[0] + " " + player.jump_position[1])
@@ -87,6 +102,13 @@ function verify(data){
 			if(player.ranking != 1)	
 				if(not_in_range(player.death_position[0], 0.0, 5000.0) || not_in_range(player.death_position[1], 0.0, 5000.0)) 
 					console.log("DEAD_POS[" + p + "] " + player.death_position[0] + " " + player.death_position[1])
+		
+			if(OUTLIER_CHECK){
+				if(not_in_range((player.jump_time - match.start_time), 2.0, 90.0))
+					console.log("jump_time[" + p + "] "+ (player.jump_time - match.start_time))
+				if(not_in_range((player.touchdown_time - match.start_time), 5.0, 120.0))
+					console.log("land_time[" + p + "] "+ (player.touchdown_time - match.start_time))
+			}
 		}
 	}
 }

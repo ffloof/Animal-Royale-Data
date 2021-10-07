@@ -3,9 +3,14 @@ function verify(data){
 		if(min > value || max < value) return true
 		else return false
 	}
+	function get_ver(match){
+		if(match.version == undefined) return 1
+		else return match.version
+	}
 
 	for(match of data){
-		console.log(match.name)
+		const version = get_ver(match)
+		console.log("v" + version + " " + match.name) //TODO: if version > 1 add check for if its sorted by rank and correctly by death time
 
 		//Time checks
 		if(not_in_range(match.start_time, 1630000000.0, 1640000000.0)) 
@@ -43,14 +48,37 @@ function verify(data){
 			} else duplicate_ranks[player.ranking-1] = p
 				
 			//time checks
-			if(not_in_range(player.jump_time, 1630000000.0, 1640000000.0))
+			if(not_in_range(player.jump_time, 1630000000.0, 1640000000.0) ||
+				not_in_range(player.jump_time, match.start_time, match.end_time))
 				console.log("JUMP_TIME[" + p + "] " + player.jump_time)
-			if(not_in_range(player.touchdown_time, 1630000000.0, 1640000000.0))
+			if(not_in_range(player.touchdown_time, 1630000000.0, 1640000000.0) ||
+				not_in_range(player.touchdown_time, match.start_time, match.end_time))
 				console.log("TOUCHDOWN_TIME[" + p + "] " + player.touchdown_time)
 			if(player.ranking != 1)  //winner cant die check
-				if(not_in_range(player.death_time, 1630000000.0, 1640000000.0))
+				if(not_in_range(player.death_time, 1630000000.0, 1640000000.0) ||
+					not_in_range(player.death_time, match.start_time, match.end_time))
 					console.log("DEATH_TIME[" + p + "] " + player.death_time)
 			
+			//order check (for v2)
+			if(version > 1){
+				if(player.ranking == p-1)
+					console.log("RANK_INDEX[" + p + "] " + player.ranking)
+				if(p != 0 && p != 1) {
+					let prev_player = match.players[p - 1]
+					if(player.death_time - prev_player.death_time > 0.0){
+						console.log("RANK_ORDER_PREV[" + p + "] " + (p-1))
+					}
+				}
+				if(p != match.players.length - 1 && p != 0){
+					let next_player = match.players[p + 1]
+					if(next_player.death_time - player.death_time > 0.0) {
+						console.log("RANK_ORDER_NEXT[" + p + "] " + (p+1))
+					}
+				}
+			}
+			
+			
+
 			//world valid position checks
 			if(not_in_range(player.jump_position[0], 0.0, 5000.0) || not_in_range(player.jump_position[1], 0.0, 5000.0)) 
 				console.log("JUMP_POS[" + p + "] " + player.jump_position[0] + " " + player.jump_position[1])

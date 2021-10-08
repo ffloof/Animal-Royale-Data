@@ -135,3 +135,189 @@ async function boxplot_time_death_by_rank(data){
 	    showlegend: false
 	});
 }
+
+async function boxplot_distance_to_death_by_rank(data){
+	function distance(x1, y1, x2, y2){
+		return Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)))
+	}
+
+	let arr_distances = []
+
+	for(let i=1;i<64;i++){
+		arr_distances.push([])
+	}
+
+	for(match of data){
+		for(player of match.players){
+			if(player.ranking != 1) 
+				arr_distances[player.ranking - 1].push(distance(
+				player.death_position[0], 
+				player.death_position[1], 
+				player.touchdown_position[0], 
+				player.touchdown_position[1]
+			))
+			else arr_distances[player.ranking - 1].push(distance(
+				match.last_gas_center[0], 
+				match.last_gas_center[1], 
+				player.touchdown_position[0], 
+				player.touchdown_position[1]
+			))
+		}
+	}
+
+	let traces = []
+
+	for(let i=0;i<arr_distances.length;i++){
+		traces.push({
+	        type: 'box',
+	        y: arr_distances[i],
+	        name: (i+1),
+	        boxpoints: false,
+	        line: {
+	            width: 1
+	        }
+
+    	})
+	}
+	
+	Plotly.newPlot('boxplot5', traces, {
+	    title: 'DISTANCE TRAVELED BY RANK',
+	    showlegend: false
+	});
+}
+
+async function boxplot_velocity_to_death_by_rank(data){
+	function distance(x1, y1, x2, y2){
+		return Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)))
+	}
+
+	let arr_velocities = []
+
+	for(let i=1;i<64;i++){
+		arr_velocities.push([])
+	}
+
+	for(match of data){
+		for(player of match.players){
+			if(player.ranking != 1) 
+				arr_velocities[player.ranking - 1].push(distance(
+				player.death_position[0], 
+				player.death_position[1], 
+				player.touchdown_position[0], 
+				player.touchdown_position[1]
+			)/(player.death_time-match.start_time))
+			else arr_velocities[player.ranking - 1].push(distance(
+				match.last_gas_center[0], 
+				match.last_gas_center[1], 
+				player.touchdown_position[0], 
+				player.touchdown_position[1]
+			)/(match.end_time-match.start_time))
+		}
+	}
+
+	let traces = []
+
+	for(let i=0;i<arr_velocities.length;i++){
+		traces.push({
+	        type: 'box',
+	        y: arr_velocities[i],
+	        name: (i+1),
+	        boxpoints: false,
+	        line: {
+	            width: 1
+	        }
+
+    	})
+	}
+	
+	Plotly.newPlot('boxplot6', traces, {
+	    title: 'VELOCITY TRAVELED BY RANK',
+	    showlegend: false
+	});
+}
+
+async function boxplot_gas_center_distance_by_rank(data){
+	function distance(x1, y1, x2, y2){
+		return Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)))
+	}
+
+	let arr_gasdist = []
+
+	for(let i=1;i<64;i++){
+		arr_gasdist.push([])
+	}
+
+	for(match of data){
+		for(player of match.players){
+			arr_gasdist[player.ranking - 1].push(distance(
+				player.touchdown_position[0], 
+				player.touchdown_position[1], 
+				match.last_gas_center[0], 
+				match.last_gas_center[1]
+			))
+		}
+	}
+
+	let traces = []
+
+	for(let i=0;i<arr_gasdist.length;i++){
+		traces.push({
+	        type: 'box',
+	        y: arr_gasdist[i],
+	        name: (i+1),
+	        boxpoints: false,
+	        line: {
+	            width: 1
+	        }
+
+    	})
+	}
+	
+	Plotly.newPlot('boxplot7', traces, {
+	    title: 'DISTANCE TO GAS CENTER BY RANK',
+	    showlegend: false
+	});
+}
+
+async function boxplot_center_map_distance_by_rank(data){
+	function distance(x1, y1, x2, y2){
+		return Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)))
+	}
+
+	let arr_centerdist = []
+
+	for(let i=1;i<64;i++){
+		arr_centerdist.push([])
+	}
+
+	for(match of data){
+		for(player of match.players){
+			arr_centerdist[player.ranking - 1].push(distance(
+				player.touchdown_position[0], 
+				player.touchdown_position[1], 
+				2300.0, 
+				2300.0
+			))
+		}
+	}
+
+	let traces = []
+
+	for(let i=0;i<arr_centerdist.length;i++){
+		traces.push({
+	        type: 'box',
+	        y: arr_centerdist[i],
+	        name: (i+1),
+	        boxpoints: false,
+	        line: {
+	            width: 1
+	        }
+
+    	})
+	}
+	
+	Plotly.newPlot('boxplot8', traces, {
+	    title: 'DISTANCE TO MAP CENTER BY RANK',
+	    showlegend: false
+	});
+}

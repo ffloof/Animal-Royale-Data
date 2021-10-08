@@ -18,4 +18,8 @@ async function analyze(files){
     boxplot_time_landed_by_rank(data)
     boxplot_time_parachuting_by_rank(data)
     boxplot_time_death_by_rank(data)
+    boxplot_distance_to_death_by_rank(data)
+    boxplot_velocity_to_death_by_rank(data)
+    boxplot_gas_center_distance_by_rank(data)
+    boxplot_center_map_distance_by_rank(data)
 }

@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		 <meta charset="UTF-8">
-		 <title>SAR Analyzer</title> 
-         <script src="https://cdn.plot.ly/plotly-2.5.1.js" charset="utf-8"></script>
-         <script src="analyze.js"></script>
-         <script src="check.js"></script>
+		<meta charset="UTF-8">
+		<title>SAR Analyzer</title> 
+        <script src="https://cdn.plot.ly/plotly-2.5.1.js" charset="utf-8"></script>
+        <script src="lines.js"></script>
+        <script src="heatmaps.js"></script>
+        <script src="boxplots.js"></script>
+
+        <script src="check.js"></script>
+        <script src="analyze.js"></script>
 	</head>
 	<body>
 
-	<input type="file" id="myFile" multiple size="50" onchange="run()">
+	   <input type="file" id="myFile" multiple size="50" onchange="run()">
 
-	<div id="output"></div>
+	   <div id="output"></div>
 	  
-	<script>
+	   <script>
 function run() {
 	console.log(":)")
     var file_select = document.getElementById("myFile");
@@ -23,26 +27,16 @@ function run() {
     	else if (file_select.files.length > 0) analyze(file_select.files) //Actually do stuff
     }
 }
-	</script>
-	<h1>Time dropped</h1>
-    <div id="a1" style="width:1100px;height:700px;"></div>
-    <h1>Winner landing heatmap</h1>
-    <div id="b2" style="width:1100px;height:700px;"></div>
-    <h1>Time dropped vs rank</h1>
-    <div id="c3" style="width:1100px;height:700px;"></div>
-    <h1>Time alive vs rank</h1>
-    <div id="d4" style="width:1100px;height:700px;"></div>
-    <h1>Gas center distance vs rank</h1>
-    <div id="e5" style="width:1100px;height:700px;"></div>
-    <h1>Landing heatmap</h1>
-    <div id="f6" style="width:1100px;height:700px;"></div>
-    <!--
-    <h1>Death heatmap</h1>
-    <div id="g7" style="width:1100px;height:700px;"></div>
-    <h1>Jump heatmap</h1>
-    <div id="h8" style="width:1100px;height:700px;"></div> -->
-    <h1>Game length distribution</h1>
-    <div id="i9" style="width:1100px;height:700px;"></div>
-	</body>
+    	</script>
+
+        <div id="line1" style="width:1100px;height:700px;"></div>
+        <div id="line2" style="width:1100px;height:700px;"></div>
+        <div id="line3" style="width:1100px;height:700px;"></div>
+
+        <div id="boxplot1" style="width:1100px;height:700px;"></div>
+        <div id="boxplot2" style="width:1100px;height:700px;"></div>
+        <div id="boxplot3" style="width:1100px;height:700px;"></div>
+        <div id="boxplot4" style="width:1100px;height:700px;"></div>
+    </body>
 </html>
     

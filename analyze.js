@@ -22,4 +22,9 @@ async function analyze(files){
     boxplot_velocity_to_death_by_rank(data)
     boxplot_gas_center_distance_by_rank(data)
     boxplot_center_map_distance_by_rank(data)
+
+    densitymap_landing(data)
+    densitymap_death(data)
+    densitymap_jump(data)
+    densitymap_winner(data)
 }

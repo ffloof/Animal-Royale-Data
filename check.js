@@ -11,10 +11,14 @@ The two types will output different names an ERROR_NAME made of capital letters,
 Each type can be disabled by setting the following flags below to false.
 */
 
+const MONTHS = ["Jan", "Feb", "Mar", "May", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
 const OUTLIER_CHECK = true
 const ERROR_CHECK = true
 
 function verify(data){
+	var date_table = {}
+
 	function not_in_range(value, min, max){
 		if(min > value || max < value) return true
 		else return false
@@ -26,7 +30,14 @@ function verify(data){
 
 	for(match of data){
 		const version = get_ver(match)
-		console.log("v" + version + " " + match.name) //TODO: if version > 1 add check for if its sorted by rank and correctly by death time
+		const date = new Date(match.start_time * 1000)
+		console.log("v" + version + " " + match.name + " " + date) //TODO: if version > 1 add check for if its sorted by rank and correctly by death time
+		let key = MONTHS[date.getMonth()] + date.getDate()
+		if (date_table[key] == undefined) {
+			date_table[key] = 0
+		} else {
+			date_table[key] += 1
+		}
 
 		if(ERROR_CHECK){
 			//Time checks
@@ -120,5 +131,9 @@ function verify(data){
 					console.log("land_time[" + p + "] "+ (player.touchdown_time - match.start_time))
 			}
 		}
+	}
+
+	for (day in date_table) {
+		console.log(day + " " + date_table[day])
 	}
 }

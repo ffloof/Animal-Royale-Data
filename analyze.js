@@ -27,4 +27,8 @@ async function analyze(files){
     densitymap_death(data)
     densitymap_jump(data)
     densitymap_winner(data)
+
+    bar_players_center(data)
+    bar_gas_death_distance_center(data)
+    bar_avg_rank_distance_center(data)
 }

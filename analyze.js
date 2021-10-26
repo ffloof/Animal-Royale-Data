@@ -1,4 +1,3 @@
-const ids = ["a1","b2","c3","d4","e5","f6","g7","h8","i9"]
 
 async function analyze(files){
     let data = []
@@ -31,4 +30,7 @@ async function analyze(files){
     bar_players_center(data)
     bar_gas_death_distance_center(data)
     bar_avg_rank_distance_center(data)
+
+    heatmap_gas_death(data)
+    heatmap_avg_rank(data)
 }

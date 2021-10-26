@@ -9,6 +9,13 @@ async function analyze(files){
 
     verify(data)
 
+    for(node of document.body.children) {
+        if(node.nodeName == "DIV"){
+            node.style.height = "900px"
+            node.style.width = "900px"
+        }
+    }
+
     line_time_dropped_vs_rank(data)
     line_gas_death_by_rank(data)
     line_time_alive_vs_rank(data)

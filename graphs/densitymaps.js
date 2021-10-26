@@ -16,7 +16,7 @@ async function densitymap_landing(data){
 			mode: 'markers',
 			name: 'points',
 			marker: {
-				color: 'rgb(102,0,0)',
+				color: '#880000',
 				size: 2,
 				opacity: 0.4
 			},
@@ -26,7 +26,7 @@ async function densitymap_landing(data){
 			y: y,
 			name: 'density',
 			ncontours: 20,
-			colorscale: 'Hot',
+			colorscale: 'YlOrRd',
 			reversescale: true,
 			showscale: false,
 			type: 'histogram2dcontour'
@@ -62,7 +62,7 @@ async function densitymap_death(data){
 			mode: 'markers',
 			name: 'points',
 			marker: {
-				color: 'rgb(102,0,0)',
+				color: '#880000',
 				size: 2,
 				opacity: 0.4
 			},
@@ -72,9 +72,9 @@ async function densitymap_death(data){
 			y: y,
 			name: 'density',
 			ncontours: 20,
-			colorscale: 'Hot',
 			reversescale: true,
 			showscale: false,
+			colorscale: 'Greys',
 			type: 'histogram2dcontour'
 		}
 	]
@@ -103,7 +103,7 @@ async function densitymap_jump(data){
 			mode: 'markers',
 			name: 'points',
 			marker: {
-				color: 'rgb(102,0,0)',
+				color: '#000000',
 				size: 2,
 				opacity: 0.4
 			},
@@ -113,7 +113,7 @@ async function densitymap_jump(data){
 			y: y,
 			name: 'density',
 			ncontours: 20,
-			colorscale: 'Hot',
+			colorscale: 'YlGnBu',
 			reversescale: true,
 			showscale: false,
 			type: 'histogram2dcontour'
@@ -145,7 +145,7 @@ async function densitymap_winner(data){
 			mode: 'markers',
 			name: 'points',
 			marker: {
-				color: 'rgb(102,0,0)',
+				color: '#FFFFFF',
 				size: 2,
 				opacity: 0.4
 			},
@@ -155,7 +155,10 @@ async function densitymap_winner(data){
 			y: y,
 			name: 'density',
 			ncontours: 20,
-			colorscale: 'Hot',
+			colorscale: [
+				['0.0', '#000044'],
+				['1.0', '#4488CC']
+  			],
 			reversescale: true,
 			showscale: false,
 			type: 'histogram2dcontour'

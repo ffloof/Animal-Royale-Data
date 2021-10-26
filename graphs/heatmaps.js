@@ -33,6 +33,7 @@ async function heatmap_gas_death(data){
 		
 	let traces = [
 		{
+			colorscale: 'Greens',
 			z:gas_deaths,
 			type:'heatmap'
 		}
@@ -74,6 +75,7 @@ async function heatmap_avg_rank(data){
 		
 	let traces = [
 		{
+			colorscale: 'Portland',
 			z:avg_rank,
 			type:'heatmap'
 		}

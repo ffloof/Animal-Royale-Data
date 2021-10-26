@@ -41,6 +41,16 @@ async function heatmap_gas_death(data){
 
 	Plotly.newPlot('heatmap1', traces, {
 	    title: 'GAS DEATH % BY DROP LOCATION',
+		xaxis: {
+	    	showgrid: false,
+	    	showticklabels: false,
+	    	ticks: ''
+		},
+		yaxis: {
+			showgrid: false,
+	    	showticklabels: false,
+	    	ticks: ''
+		},
 	})
 }
 
@@ -83,5 +93,15 @@ async function heatmap_avg_rank(data){
 
 	Plotly.newPlot('heatmap2', traces, {
 	    title: 'AVERAGE RANK BY DROP LOCATION',
+	    xaxis: {
+	    	showgrid: false,
+	    	showticklabels: false,
+	    	ticks: ''
+		},
+		yaxis: {
+			showgrid: false,
+	    	showticklabels: false,
+	    	ticks: ''
+		},
 	})
 }

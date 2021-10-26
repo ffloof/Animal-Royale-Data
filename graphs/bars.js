@@ -37,12 +37,13 @@ async function bar_players_center(data){
 		{
 			x: names,
 			y: values,
-			type: 'bar'
+			type: 'bar',
+			marker: {color: '#0088CC'},
 		}
 	];
 
 	Plotly.newPlot('bar1', traces, {
-        title: 'PLAYER DISTANCE TO GAS CENTER DISTRIBUTION',
+        title: 'PLAYER % DISTANCE TO GAS CENTER DISTRIBUTION',
     });
 }
 
@@ -88,7 +89,8 @@ async function bar_gas_death_distance_center (data){
 		{
 			x: names,
 			y: values,
-			type: 'bar'
+			type: 'bar',
+			marker: {color: '#448844'},
 		}
 	];
 
@@ -137,7 +139,8 @@ async function bar_avg_rank_distance_center(data){
 		{
 			x: names,
 			y: values,
-			type: 'bar'
+			type: 'bar',
+			marker: {color: '#FF4444'},
 		}
 	];
 

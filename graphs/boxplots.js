@@ -16,6 +16,7 @@ async function boxplot_time_jumped_by_rank(data){
 	for(let i=0;i<arr_jump_times.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ i/4+'%,75%'+',50%)'},
 	        y: arr_jump_times[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -50,6 +51,7 @@ async function boxplot_time_landed_by_rank(data){
 	for(let i=0;i<arr_land_times.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ (i/3+45)+'%,65%'+',50%)'},
 	        y: arr_land_times[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -84,7 +86,7 @@ async function boxplot_time_parachuting_by_rank(data){
 	for(let i=0;i<arr_parachute_times.length;i++){
 		traces.push({
 	        type: 'box',
-	        whiskerwidth: 0.0,
+	        //marker: {color:'hsl('+ (i/2+60)+'%,65%'+',50%)'},
 	        y: arr_parachute_times[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -120,6 +122,7 @@ async function boxplot_time_death_by_rank(data){
 	for(let i=0;i<arr_death_times.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ i+'%,65%'+',50%)'},
 	        y: arr_death_times[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -170,6 +173,7 @@ async function boxplot_distance_to_death_by_rank(data){
 	for(let i=0;i<arr_distances.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ i/4+'%,75%'+',50%)'},
 	        y: arr_distances[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -220,6 +224,7 @@ async function boxplot_velocity_to_death_by_rank(data){
 	for(let i=0;i<arr_velocities.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ (i/3+45)+'%,65%'+',50%)'},
 	        y: arr_velocities[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -263,6 +268,7 @@ async function boxplot_gas_center_distance_by_rank(data){
 	for(let i=0;i<arr_gasdist.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ (i/2+60)+'%,65%'+',50%)'},
 	        y: arr_gasdist[i],
 	        name: (i+1),
 	        boxpoints: false,
@@ -306,6 +312,7 @@ async function boxplot_center_map_distance_by_rank(data){
 	for(let i=0;i<arr_centerdist.length;i++){
 		traces.push({
 	        type: 'box',
+	        //marker: {color:'hsl('+ i+'%,65%'+',50%)'},
 	        y: arr_centerdist[i],
 	        name: (i+1),
 	        boxpoints: false,

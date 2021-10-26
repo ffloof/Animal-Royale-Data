@@ -49,14 +49,19 @@ async function line_time_dropped_vs_rank(data){
         x: ranks,
         y: avg_jump,
         name: 'average time to jump by rank',
+        line: {shape: 'spline'},
+        marker: {color: '#FF4444'},
     }, {
         x: ranks,
         y: avg_land,
         name: 'average time to land by rank',
+        line: {shape: 'spline'},
+        marker: {color: '#448844'},
     }, {
         x: ranks,
         y: line_total_jump,
         name: 'overall average time to jump',
+        marker: {color: '#FF4444'},
         line: {
             dash: 'dot',
             width: 4
@@ -65,6 +70,7 @@ async function line_time_dropped_vs_rank(data){
         x: ranks,
         y: line_total_land,
         name: 'overall average time to land',
+        marker: {color: '#448844'},
         line: {
             dash: 'dot',
             width: 4
@@ -117,10 +123,13 @@ async function line_gas_death_by_rank(data){
         x: ranks,
         y: avg_gas,
         name: 'average gas death % by rank',
+        marker: {color: '#0088CC'},
+        line: {shape: 'spline'},
     }, {
         x: ranks,
         y: line_total_gas,
         name: 'gas death % overall average',
+        marker: {color: '#0088CC'},
         line: {
             dash: 'dot',
             width: 4
@@ -173,10 +182,13 @@ async function line_time_alive_vs_rank(data){
         x: ranks,
         y: avg_alive,
         name: 'average time alive by rank',
+        marker: {color: '#FF8844'},
+        line: {shape: 'spline'},
     }, {
         x: ranks,
         y: line_total_alive,
         name: 'overall average time alive',
+        marker: {color: '#FF8844'},
         line: {
             dash: 'dot',
             width: 4

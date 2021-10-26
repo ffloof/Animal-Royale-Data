@@ -13,7 +13,7 @@
 
 ### Introduction
 
-//TODO: Add heatmap image
+![Landing spot density plot](docs/densitymap1.png?raw=true)
 
 I wanted to study player behavior in a battle royale style game that pits many players against each other and tries to see who will be the last survivor among them. I wrote a program that automatically joined games and watched them recording player data. After running it for the past few weeks I amassed a considerable amount of data from over 500+ games. 
 

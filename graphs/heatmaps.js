@@ -1,5 +1,5 @@
 
-const WORLDSIZE = 4700
+const WORLDSIZE = 4650
 const SECTORS = 50
 
 async function heatmap_gas_death(data){
@@ -27,7 +27,7 @@ async function heatmap_gas_death(data){
 	for(y=0;y<SECTORS;y++){
 		for(x=0;x<SECTORS;x++){
 			if(player_drops[y][x] == 0) gas_deaths[y][x] = 0
-			else gas_deaths[y][x] /= player_drops[y][x]
+			else gas_deaths[y][x] *= 100 / player_drops[y][x]
 		}
 	}
 		
@@ -38,7 +38,9 @@ async function heatmap_gas_death(data){
 		}
 	]
 
-	Plotly.newPlot('heatmap1', traces)
+	Plotly.newPlot('heatmap1', traces, {
+	    title: 'GAS DEATH % BY DROP LOCATION',
+	})
 }
 
 async function heatmap_avg_rank(data){
@@ -77,5 +79,7 @@ async function heatmap_avg_rank(data){
 		}
 	]
 
-	Plotly.newPlot('heatmap2', traces)
+	Plotly.newPlot('heatmap2', traces, {
+	    title: 'AVERAGE RANK BY DROP LOCATION',
+	})
 }

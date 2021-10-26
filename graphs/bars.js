@@ -41,7 +41,9 @@ async function bar_players_center(data){
 		}
 	];
 
-	Plotly.newPlot('bar1', traces);
+	Plotly.newPlot('bar1', traces, {
+        title: 'PLAYER DISTANCE TO GAS CENTER DISTRIBUTION',
+    });
 }
 
 
@@ -90,7 +92,9 @@ async function bar_gas_death_distance_center (data){
 		}
 	];
 
-	Plotly.newPlot('bar2', traces);
+	Plotly.newPlot('bar2', traces, {
+        title: 'GAS DEATH % VS DISTANCE TO GAS CENTER',
+    });
 }
 
 
@@ -137,5 +141,7 @@ async function bar_avg_rank_distance_center(data){
 		}
 	];
 
-	Plotly.newPlot('bar3', traces);
+	Plotly.newPlot('bar3', traces, {
+        title: 'AVERAGE RANK VS DISTANCE TO GAS CENTER',
+    });
 }

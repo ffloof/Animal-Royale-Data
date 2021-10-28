@@ -70,8 +70,13 @@ It does various checks like verifying the order of deaths, making sure theyre wi
 
 ### Theories and Findings
 
+
+
+
 ### Conclusion
 
 ### Calendar
 
 ### How To Use
+
+Download the repository and open index.html in your browser. Select the json files (shift click on two or highlight multiple files) of the games you want to analyze and it'll output all the plots for you.

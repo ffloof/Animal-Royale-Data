@@ -34,7 +34,7 @@ function verify(data){
 		console.log("v" + version + " " + match.name + " " + date) //TODO: if version > 1 add check for if its sorted by rank and correctly by death time
 		let key = MONTHS[date.getMonth()] + date.getDate()
 		if (date_table[key] == undefined) {
-			date_table[key] = 0
+			date_table[key] = 1
 		} else {
 			date_table[key] += 1
 		}
@@ -133,7 +133,11 @@ function verify(data){
 		}
 	}
 
+	let total = 0
 	for (day in date_table) {
 		console.log(day + " " + date_table[day])
+		total += date_table[day]
 	}
+	console.log(data.length)
+	console.log(total)
 }

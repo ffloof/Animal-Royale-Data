@@ -70,12 +70,28 @@ It does various checks like verifying the order of deaths, making sure theyre wi
 
 ### Theories and Findings
 
-
-
-
 ### Conclusion
 
+
+
+
 ### Calendar
+
+Calendar of when game data was recorded
+
+**October**
+|Mon|Tue|Wed|Thu|Fri|Sat|Sun|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|-|-|-|-|1 - 0|2 - 0|3 - 47|
+|4 - 94|5 - 95|6 - 66|7 - 39|8 - 32|9 - 84|10 - 12|
+|11 - 133|12 - 0|13 - 53|14 - 0|15 - 59|16 - 0|17 - 0|
+|18 - 0|19 - 0|20 - 0|21 - 0|22 - 0|23 - 0|24 - 0|
+|25 - 0|26 - 0|27 - 0|28 - 0|29 - 0|30 - 0|31 - 0|
+
+133 + 84 + 32 + 66 + 95 + 47 + 53 + 12 + 39 + 94 + 59
+= 714
+
+Something is weird with the math there should be 725 total, not sure what the issue is.
 
 ### How To Use
 

@@ -77,29 +77,38 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 
 <img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
 
-<img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="300"/>
+<img src="./docs/boxplot7.png" width="400" height="333"/> <img src="./docs/line2.png" width="400" height="400"/>
 
 ![](docs/densitymap5.png?raw=true)
 
 ### Drop times
-![](docs/boxplot1.png?raw=true)
-![](docs/boxplot2.png?raw=true)
-![](docs/boxplot3.png?raw=true)
+
 ![](docs/line1.png?raw=true)
 
-Other 
-![](docs/boxplot8.png?raw=true)
-![](docs/bar3.png?raw=true)
-![](docs/boxplot4.png?raw=true)
+<img src="./docs/boxplot1.png" width="400" height="300"/> <img src="./docs/boxplot2.png" width="400" height="300"/> <img src="./docs/boxplot3.png" width="400" height="300"/>
+
+### Distances travelled
+
 ![](docs/boxplot5.png?raw=true)
 ![](docs/boxplot6.png?raw=true)
-![](docs/densitymap1.png?raw=true)
+![](docs/boxplot8.png?raw=true)
+![](docs/bar3.png?raw=true)
+
+### Deaths
+
+![](docs/line3.png?raw=true)
+![](docs/boxplot4.png?raw=true)
 ![](docs/densitymap2.png?raw=true)
+
+### Drop Distribution
+
+![](docs/densitymap1.png?raw=true)
 ![](docs/densitymap3.png?raw=true)
+
+### Rank determinism
+
 ![](docs/densitymap4.png?raw=true)
 ![](docs/heatmap2.png?raw=true)
-![](docs/line3.png?raw=true)
-
 
 ## Conclusion
 

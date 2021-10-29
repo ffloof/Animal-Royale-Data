@@ -76,7 +76,6 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 ### Gas deaths
 
 <img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
-
 <img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="400"/>
 
 ![](docs/densitymap5.png?raw=true)
@@ -89,26 +88,19 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 
 ### Distances travelled
 
-![](docs/boxplot5.png?raw=true)
-![](docs/boxplot6.png?raw=true)
-![](docs/boxplot8.png?raw=true)
-![](docs/bar3.png?raw=true)
+<img src="./docs/boxplot5.png" width="400" height="300"/> <img src="./docs/boxplot6.png" width="400" height="300"/> <img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="400" height="400"/>
 
 ### Deaths
 
-![](docs/line3.png?raw=true)
-![](docs/boxplot4.png?raw=true)
+<img src="./docs/line3.png" width="400" height="400"/> <img src="./docs/boxplot4.png" width="400" height="300"/>
 ![](docs/densitymap2.png?raw=true)
 
 ### Drop Distribution
-
-![](docs/densitymap1.png?raw=true)
-![](docs/densitymap3.png?raw=true)
+<img src="./docs/densitymap1.png" width="400" height="400"/><img src="./docs/densitymap3.png" width="400" height="400"/>
 
 ### Rank determinism
 
-![](docs/densitymap4.png?raw=true)
-![](docs/heatmap2.png?raw=true)
+<img src="./docs/densitymap4.png" width="400" height="400"/><img src="./docs/heatmap2.png" width="400" height="400"/>
 
 ## Conclusion
 

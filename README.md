@@ -61,7 +61,7 @@ Player {
 
 Due to the nature of how memory is deallocated after each game, and how the game engine handles player data, occasionally data was misrecorded, or recorded null bytes. As a result `check.js` is used to screen all the data, in an attempt to verify its validity. It logs the name and date of each file being analyzed and below will log any errors in the data.
 
-//TODO: add screenshot of console log output
+![](docs/console.png?raw=true)
 
 It does various checks like verifying the order of deaths, making sure theyre within the span of the game, checking player positions to ensure they're valid and other miscallaneous checks. Through this I was able to weed out any contaminated data sets. I've seperated the data into three sets.
 
@@ -76,27 +76,26 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 ### Gas deaths
 
 <img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
-<img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="400"/>
+<img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="300"/>
 
-![](docs/densitymap5.png?raw=true)
+<img src="./docs/densitymap2.png" width="400" height="400"/> <img src="./docs/densitymap5.png" width="400" height="400"/>
 
 ### Drop times
 
-![](docs/line1.png?raw=true)
-
-<img src="./docs/boxplot1.png" width="400" height="300"/> <img src="./docs/boxplot2.png" width="400" height="300"/> <img src="./docs/boxplot3.png" width="400" height="300"/>
+<img src="./docs/line1.png" width="400" height="300"/> <img src="./docs/boxplot1.png" width="400" height="300"/> <img src="./docs/boxplot2.png" width="400" height="300"/> <img src="./docs/boxplot3.png" width="400" height="300"/>
 
 ### Distances travelled
 
-<img src="./docs/boxplot5.png" width="400" height="300"/> <img src="./docs/boxplot6.png" width="400" height="300"/> <img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="400" height="400"/>
+<img src="./docs/boxplot5.png" width="400" height="300"/> <img src="./docs/boxplot6.png" width="400" height="300"/> <img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="300" height="300"/>
 
 ### Deaths
 
-<img src="./docs/line3.png" width="400" height="400"/> <img src="./docs/boxplot4.png" width="400" height="300"/>
-![](docs/densitymap2.png?raw=true)
+<img src="./docs/line3.png" width="400" height="300"/> <img src="./docs/boxplot4.png" width="400" height="300"/>
 
 ### Drop Distribution
-<img src="./docs/densitymap1.png" width="400" height="400"/><img src="./docs/densitymap3.png" width="400" height="400"/>
+
+![](docs/densitymap1.png?raw=true)
+![](docs/densitymap3.png?raw=true)
 
 ### Rank determinism
 

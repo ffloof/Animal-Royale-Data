@@ -42,25 +42,25 @@ function verify(data){
 		if(ERROR_CHECK){
 			//Time checks
 			if(not_in_range(match.start_time, 1630000000.0, 1640000000.0)) 
-				console.log("START_TIME " + match.start_time)
+				console.error("START_TIME " + match.start_time)
 			if(not_in_range(match.end_time, 1630000000.0, 1640000000.0)) 
-				console.log("END_TIME " + match.end_time)
+				console.error("END_TIME " + match.end_time)
 			
 			//Data collection check
 			if(!(match.game_started && match.game_ended)) 
-				console.log("PHASE " + match.game_started + " " + match.game_ended)
+				console.error("PHASE " + match.game_started + " " + match.game_ended)
 			
 			//Position in world checks
 			if(not_in_range(match.flight_start[0], 0.0, 5000.0) || not_in_range(match.flight_start[1], 0.0, 5000.0)) 
-				console.log("FLIGHT_START " + match.flight_start[0] + " " + match.flight_start[1]) 
+				console.error("FLIGHT_START " + match.flight_start[0] + " " + match.flight_start[1]) 
 			if(not_in_range(match.flight_end[0], 0.0, 5000.0) || not_in_range(match.flight_end[1], 0.0, 5000.0))
-				console.log("FLIGHT_END " + match.flight_end[0] + " " + match.flight_end[1])
+				console.error("FLIGHT_END " + match.flight_end[0] + " " + match.flight_end[1])
 			if(not_in_range(match.last_gas_center[0], 0.0, 5000.0) || not_in_range(match.last_gas_center[1], 0.0, 5000.0))
-				console.log("GAS_CENTER " + match.last_gas_center[0] + " " + match.last_gas_center[1])
+				console.error("GAS_CENTER " + match.last_gas_center[0] + " " + match.last_gas_center[1])
 
 			if(OUTLIER_CHECK){
 				if(not_in_range((match.flight_end - match.flight_start), 300.0, 420.0))
-					console.log("match_length " + (match.flight_end - match.flight_start))	
+					console.error("match_length " + (match.flight_end - match.flight_start))	
 			}
 		}
 
@@ -75,60 +75,60 @@ function verify(data){
 			if(ERROR_CHECK){
 				//duplicate rank check
 				if(duplicate_ranks[player.ranking-1] != -1){
-					console.log("RANK[" + p + "] " + player.ranking + " conflict["+duplicate_ranks[player.ranking-1]+"]")
+					console.error("RANK[" + p + "] " + player.ranking + " conflict["+duplicate_ranks[player.ranking-1]+"]")
 				} else duplicate_ranks[player.ranking-1] = p
 					
 				//time checks
 				if(not_in_range(player.jump_time, 1630000000.0, 1640000000.0) ||
 					not_in_range(player.jump_time, match.start_time, match.end_time))
-					console.log("JUMP_TIME[" + p + "] " + player.jump_time)
+					console.error("JUMP_TIME[" + p + "] " + player.jump_time)
 				if(not_in_range(player.touchdown_time, 1630000000.0, 1640000000.0) ||
 					not_in_range(player.touchdown_time, match.start_time, match.end_time))
-					console.log("TOUCHDOWN_TIME[" + p + "] " + player.touchdown_time)
+					console.error("TOUCHDOWN_TIME[" + p + "] " + player.touchdown_time)
 				if(player.ranking != 1){  //winner cant die check
 					if(not_in_range(player.death_time, 1630000000.0, 1640000000.0) ||
 						not_in_range(player.death_time, match.start_time, match.end_time))
-						console.log("DEATH_TIME[" + p + "] " + player.death_time)
+						console.error("DEATH_TIME[" + p + "] " + player.death_time)
 
 					if(player.death_time < player.touchdown_time)
-						console.log("EVENT_ORDER1[" + p + "]")
+						console.error("EVENT_ORDER1[" + p + "]")
 				}
 				if(player.touchdown_time < player.jump_time)
-					console.log("EVENT_ORDER2[" + p + "]")
+					console.error("EVENT_ORDER2[" + p + "]")
 				
 				//order check (for v2)
 				if(version > 1){
 					if(player.ranking == p-1)
-						console.log("RANK_INDEX[" + p + "] " + player.ranking)
+						console.error("RANK_INDEX[" + p + "] " + player.ranking)
 					if(p != 0 && p != 1) {
 						let prev_player = match.players[p - 1]
 						if(player.death_time - prev_player.death_time > 0.0){
-							console.log("RANK_ORDER_PREV[" + p + "] " + (p-1))
+							console.error("RANK_ORDER_PREV[" + p + "] " + (p-1))
 						}
 					}
 					if(p != match.players.length - 1 && p != 0){
 						let next_player = match.players[p + 1]
 						if(next_player.death_time - player.death_time > 0.0) {
-							console.log("RANK_ORDER_NEXT[" + p + "] " + (p+1))
+							console.error("RANK_ORDER_NEXT[" + p + "] " + (p+1))
 						}
 					}
 				}
 				
 				//world valid position checks
 				if(not_in_range(player.jump_position[0], 0.0, 5000.0) || not_in_range(player.jump_position[1], 0.0, 5000.0)) 
-					console.log("JUMP_POS[" + p + "] " + player.jump_position[0] + " " + player.jump_position[1])
+					console.error("JUMP_POS[" + p + "] " + player.jump_position[0] + " " + player.jump_position[1])
 				if(not_in_range(player.touchdown_position[0], 0.0, 5000.0) || not_in_range(player.touchdown_position[1], 0.0, 5000.0)) 
-					console.log("LAND_POS[" + p + "] " + player.touchdown_position[0] + " " + player.touchdown_position[1])
+					console.error("LAND_POS[" + p + "] " + player.touchdown_position[0] + " " + player.touchdown_position[1])
 				if(player.ranking != 1)	
 					if(not_in_range(player.death_position[0], 0.0, 5000.0) || not_in_range(player.death_position[1], 0.0, 5000.0)) 
-						console.log("DEAD_POS[" + p + "] " + player.death_position[0] + " " + player.death_position[1])
+						console.error("DEAD_POS[" + p + "] " + player.death_position[0] + " " + player.death_position[1])
 			}
 
 			if(OUTLIER_CHECK){
 				if(not_in_range((player.jump_time - match.start_time), 2.0, 90.0))
-					console.log("jump_time[" + p + "] "+ (player.jump_time - match.start_time))
+					console.error("jump_time[" + p + "] "+ (player.jump_time - match.start_time))
 				if(not_in_range((player.touchdown_time - match.start_time), 5.0, 120.0))
-					console.log("land_time[" + p + "] "+ (player.touchdown_time - match.start_time))
+					console.error("land_time[" + p + "] "+ (player.touchdown_time - match.start_time))
 			}
 		}
 	}
@@ -138,6 +138,5 @@ function verify(data){
 		console.log(day + " " + date_table[day])
 		total += date_table[day]
 	}
-	console.log(data.length)
 	console.log(total)
 }

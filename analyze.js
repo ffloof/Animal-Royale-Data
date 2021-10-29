@@ -33,11 +33,12 @@ async function analyze(files){
     densitymap_death(data)
     densitymap_jump(data)
     densitymap_winner(data)
+    densitymap_gasdeath(data)
 
     bar_players_center(data)
     bar_gas_death_distance_center(data)
     bar_avg_rank_distance_center(data)
 
-    heatmap_gas_death(data)
+    //heatmap_gas_death(data)
     heatmap_avg_rank(data)
 }

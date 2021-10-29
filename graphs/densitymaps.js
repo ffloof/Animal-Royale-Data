@@ -170,3 +170,46 @@ async function densitymap_winner(data){
 	    title: 'WINNER LANDING SPOT DENSITY MAP',
 	});
 }
+
+async function densitymap_gasdeath(data){
+	let x = []
+	let y = []
+
+	for(match of data){
+		for(player of match.players){
+			if(player.ranking != 1 && player.died_in_gas){
+				x.push(player.death_position[0])
+				y.push(player.death_position[1])
+			}
+		}
+	}
+
+	let traces = [
+		{
+			x: x,
+			y: y,
+			mode: 'markers',
+			name: 'points',
+			marker: {
+				color: '#000000',
+				size: 2,
+				opacity: 0.4
+			},
+			type: 'scattergl'
+		}, {
+			x: x,
+			y: y,
+			name: 'density',
+			ncontours: 20,
+			reversescale: true,
+			showscale: false,
+			colorscale: 'Greens',
+			type: 'histogram2dcontour'
+		}
+	]
+
+	Plotly.newPlot('densitymap5', traces, {
+	    hovermode: 'closest',
+	    title: 'GAS DEATH DENSITY MAP',
+	});
+}

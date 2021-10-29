@@ -16,7 +16,7 @@
 
 I wanted to study player behavior in a battle royale style game that pits many players against each other and tries to see who will be the last survivor among them. I wrote a program that automatically joined games and watched them recording player data. After running it for the past few weeks I amassed a considerable amount of data from over 500+ games. 
 
-![Landing spot density plot](docs/densitymap1.png?raw=true)
+<img src="./docs/densitymapcrop.png" width="400" height="400"/> <img src="./docs/gamemap.png" width="400" height="400"/>
 
 ## Data Collection
 
@@ -77,7 +77,7 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 
 <img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
 
-<img src="./docs/boxplot7.png" width="400" height="333"/> <img src="./docs/line2.png" width="400" height="400"/>
+<img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="400"/>
 
 ![](docs/densitymap5.png?raw=true)
 

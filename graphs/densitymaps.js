@@ -146,8 +146,8 @@ async function densitymap_winner(data){
 			name: 'points',
 			marker: {
 				color: '#FFFFFF',
-				size: 2,
-				opacity: 0.4
+				size: 2.5,
+				opacity: 0.5
 			},
 			type: 'scattergl'
 		}, {
@@ -193,7 +193,7 @@ async function densitymap_gasdeath(data){
 			marker: {
 				color: '#000000',
 				size: 2,
-				opacity: 0.4
+				opacity: 0.5
 			},
 			type: 'scattergl'
 		}, {

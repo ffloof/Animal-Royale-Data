@@ -113,14 +113,19 @@ NOTE: The distance travelled is calculated as a straight line from their landing
 
 <img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="300" height="300"/>
 
-
+The distance to map center and gas center seem to have very little influence on rank. The only players who are noticeably further from the map center are the lowest ranking because they likely dropped early towards the edge of the island as implied by the drop statistics. The average rank vs distance to gas center is consistently around 32 which is the average rank for a player in a game of 64 players, so it plays little part in the final rank. 
  
-
 ### Deaths
 
 <img src="./docs/line3.png" width="400" height="300"/> <img src="./docs/boxplot4.png" width="400" height="300"/>
 
+The plots show the pacing of the game, and the rank 1 player shows how the distribution of how long the game lasts. The average game lasts 385 seconds with the average player surviving 147 seconds. Most players don't even make half way through the duration of the game. This makes sense from a game design point of view as you wouldn't want to pace the game in a way where most players survive through most of the game, and get invested just to all die in an unsatisfying massive final brawl with low stakes. You'd rather want many to get culled early who can just queue for another game in turn lowering queue times for other players.
+
+NOTE: Rank 1 player doesn't die so the time is just the game length
+
 ### Density Distributions
+
+These are what I'm most proud of and what I was looking forward to seeing when I began this project.
 
 ![](docs/densitymap1.png?raw=true)
 ![](docs/densitymap2.png?raw=true)
@@ -130,6 +135,8 @@ NOTE: The distance travelled is calculated as a straight line from their landing
 ### Rank determinism
 
 <img src="./docs/densitymap4.png" width="400" height="400"/><img src="./docs/heatmap2.png" width="400" height="400"/>
+
+
 
 ## Conclusion
 
@@ -154,4 +161,4 @@ Calendar of when game data was recorded
 
 ## How To Use
 
-Download the repository and open index.html in your browser. Select the json files (shift click on two , highlight multiple files, or select all with CTRL + A) of the games you want to analyze and it'll output all the plots for you.
+Download the repository and open index.html in your browser. Select the json files (shift click on two, highlight multiple files, or select all with CTRL + A) of the games you want to analyze and it'll output all the plots for you.

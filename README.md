@@ -149,7 +149,9 @@ As for the gas center distribution I expect this has to do with how the gas ring
 
 <img src="./docs/densitymap4.png" width="400" height="400"/><img src="./docs/heatmap2.png" width="400" height="400"/>
 
+The winner distribution looks at a glance very similar to the overall player distribution and while there are differences I'd chalk those up to the smaller sample size of winners. As for the heatmap of average ranks is very noisy and largely inconclusive due to the limited sample size per region make of it what you will.
 
+NOTE: spots where no players landed on the heatmap were filled as 64(red)
 
 ## Conclusion
 

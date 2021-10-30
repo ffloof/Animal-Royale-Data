@@ -76,9 +76,22 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 ### Gas deaths
 
 <img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
+
+Players tend to disperse a fair distance away from the final gas circle with 90% dropping at least 1000 units away from the final gas circle center. The area the player can land on the map including ocean being about 4600 x 4600 units. From corner to corner this is about 6500 units however since the gas ring's center always has to be on land in practice the furtherest a recorded player dropped was about 5400 units away from the gas.
+
+![](docs/gamemapscale.png?raw=true)
+
+The chance to die in the gas increases with the distance a player lands from the center. You could attribute this to the longer distance making it harder to escape the gas. However, in practice the percentage of deaths is likely inflated by inactive players. Inactive players automatically drop when the flight reaches the edge of the world and as a result they will often be far from the gas center, and since they are inactive they will die to the gas when it reaches them. In an average game less than 5% of players die while in the gas, which out of the 64 total, is around 3-4 players.
+
+This could mean the gas isn't a huge threat but it could also mean that players have learned to avoid it. Either way only about 5% of players died while in the gas which is far less than I initially expected. It makes sense since you can almost always outrun the gas while rolling with the sword out and during the first few rings it does very little damage, and you can easily out heal it.
+
 <img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="300"/>
 
-<img src="./docs/densitymap2.png" width="400" height="400"/> <img src="./docs/densitymap5.png" width="400" height="400"/>
+How far away a player drops appears to have little influence on the final ranking. The only exception are the people who died first, who tend to be the people who dropped earlier and closer to the edge of the island near the start of the game and as a result are further away on average but not by much. 
+
+The percentage of players who die to gas increases greatly as the game goes on. This makes sense as many players die before the first ring appears. Even inactive players in a remote region of the map can survive for a considerable amount of time. And since the gas deals more damage with every consecutive ring it makes sense that it would be much more dangerous later on as players are fighting for a very limited amount of space.
+
+NOTE: gas deaths are counted if the player happened to be standing in the gas when they died, they need not have died from the gas itself.
 
 ### Drop times
 
@@ -92,10 +105,12 @@ I didn't go into this project with any particular hypothesis to test. I just wan
 
 <img src="./docs/line3.png" width="400" height="300"/> <img src="./docs/boxplot4.png" width="400" height="300"/>
 
-### Drop Distribution
+### Density Distributions
 
 ![](docs/densitymap1.png?raw=true)
+![](docs/densitymap2.png?raw=true)
 ![](docs/densitymap3.png?raw=true)
+![](docs/densitymap5.png?raw=true)
 
 ### Rank determinism
 

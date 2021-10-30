@@ -125,12 +125,25 @@ NOTE: Rank 1 player doesn't die so the time is just the game length
 
 ### Density Distributions
 
-These are what I'm most proud of and what I was looking forward to seeing when I began this project.
+These are what I'm most proud of and what I was looking forward to seeing when I began this project. Many of the graphs support previous explanations I've brought up and they also show how accurate the gathered data really is with very finite details being discernable.
 
 ![](docs/densitymap1.png?raw=true)
+
+Its clear that the most popular locations are the major structures especially towards the center of the map. Just from the drop markers you can make out the outlines of many of the major structures on the map. Theres also a ring of inactive players who got dropped around the edge of the map in the ocean, which aligns with the other data. 
+
 ![](docs/densitymap2.png?raw=true)
+
+Similarly this map tells us a lot about player behavior. We can make out roads on the map that players travel along, and even the individual corridors in buildings like the Pyramid, Animal Farm, and the left building of Saw Research Labs. Similarly the deaths create an almost perfect outline of the island. This is because whenever a player lands in the ocean as many inactive players do, they will be teleported to the beach nearest to them and hence when they die there they create a clean outline of the island. 
+
 ![](docs/densitymap3.png?raw=true)
-![](docs/densitymap5.png?raw=true)
+
+This is more a confirmation of previous findings but but most players tend to drop somewhere around the map center. Even the individual lines of players dropping from a flight can be discerned.
+
+<img src="./docs/densitymap5.png" width="400" height="400"/><img src="./docs/densitymap6.png" width="400" height="400"/>
+
+Players later on in the game die significantly more so it makes sense that many of the deaths are toward the center of the map, where the gas ends. I would have expected more players to die on the outskirts of the map due to gas deaths. Maybe they're killed by players looking for an easy kill or they come back before the gas reaches them. Either way it runs counter to what I postulated earlier about gas deaths vs distance being inflated by inactive players. 
+
+As for the gas center distribution I expect this has to do with how the gas ring's center has to always be on land, so this leads to the densest regions being towards the center though I don't have the mathematical expertise to prove this.  
 
 ### Rank determinism
 

@@ -34,6 +34,7 @@ async function analyze(files){
     densitymap_jump(data)
     densitymap_winner(data)
     densitymap_gasdeath(data)
+    densitymap_gascenter(data)
 
     bar_players_center(data)
     bar_gas_death_distance_center(data)

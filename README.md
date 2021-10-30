@@ -95,11 +95,26 @@ NOTE: gas deaths are counted if the player happened to be standing in the gas wh
 
 ### Drop times
 
-<img src="./docs/line1.png" width="400" height="300"/> <img src="./docs/boxplot1.png" width="400" height="300"/> <img src="./docs/boxplot2.png" width="400" height="300"/> <img src="./docs/boxplot3.png" width="400" height="300"/>
+<img src="./docs/boxplot2.png" width="400" height="300"/> <img src="./docs/boxplot1.png" width="400" height="300"/> 
+
+To little surprise every rank has a wide distribution of when people choose to jump and when they subsequently land. The only definitive trends are towards the lower and higher ranks. The lower ranks are the players who died the earliest in the game, and were the ones who got into fights first, so they must have landed sooner than most, and the data confirms. In the middling ranks the times plateau until reaching the last few ranks where players jump slightly sooner. This is pure speculation but I'd expect this is a result of higher ranking players being more experienced and less hesitant when choosing a place to land. The data also shows a clear maximum and minimum amount of time that can be spent dropping which is a good sign for the integrity of the data.
+
+<img src="./docs/line1.png" width="400" height="300"/> <img src="./docs/boxplot3.png" width="400" height="300"/>
+
+An average player drops around 21 seconds after the match starts, and lands 33 seconds after the match starts. Though the lowest ranking players who jump early on in the match bring down this average considerably. The game also has a mechanic where you can fall faster to reach the ground before other players. As expected it follows a similar trend with the lowest ranking players typically dropping the fastest and spending the least time in the air.
 
 ### Distances travelled
 
-<img src="./docs/boxplot5.png" width="400" height="300"/> <img src="./docs/boxplot6.png" width="400" height="300"/> <img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="300" height="300"/>
+<img src="./docs/boxplot5.png" width="400" height="300"/> <img src="./docs/boxplot6.png" width="400" height="300"/> 
+
+The distance travelled increases consistently with the ranking of the player. This makes sense as players who survive longer will travel further and further as the gas pushes them to another part of the map. Velocity on the other hand tells a much more interesting story. It reflects how the game plays out for different groups of players, the lowest ranking players die quickly and don't tend to travel very far, instead getting into a fight early on. Middle ranking players tend to travel a lot further as a result of the gas pushing them often far across the map. And as the rings get smaller less travelling is required and it becomes more a competition of holding on to the limited space left instead of travelling across the map meaning the highest ranking players will move slower on average, as the game becomes more and more about defending territory. 
+
+NOTE: The distance travelled is calculated as a straight line from their landing point to their death point.
+
+<img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="300" height="300"/>
+
+
+ 
 
 ### Deaths
 

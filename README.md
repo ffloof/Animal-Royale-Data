@@ -15,7 +15,8 @@
 
 I wanted to study player behavior in a battle royale style game that pits many players against each other and tries to see who will be the last survivor among them. I wrote a program that automatically joined games and watched them recording player data. After running it for the past few weeks I amassed a considerable amount of data from over 500+ games. 
 
-<img src="./docs/densitymapcrop.png" width="400" height="400"/> <img src="./docs/gamemap.png" width="400" height="400"/>
+![](docs/densitymapcrop.png) | ![](docs/gamemap.png)
+:-: | :-: 
 
 ## Data Collection
 
@@ -60,7 +61,7 @@ Player {
 
 Due to the nature of how memory is deallocated after each game, and how the game engine handles player data, occasionally data was misrecorded, or recorded null bytes. As a result `check.js` is used to screen the data, in an attempt to ensure its validity. It logs the name and date of each file being analyzed and below will log any errors in the data.
 
-![](docs/console.png?raw=true)
+![](docs/console.png)
 
 It does various checks like verifying the order of deaths, making sure they are within the time span of the game, checking player positions to ensure they are valid and other miscellaneous checks. Through this I was able to weed out any contaminated data sets. I have separated the data into three sets.
 
@@ -74,7 +75,8 @@ I did not go into this project with any particular hypothesis to test. I just wa
 
 ### Gas deaths
 
-<img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
+![](docs/bar1.png) | ![](docs/bar2.png)
+:-: | :-:
 
 The area the player can land on the map including the ocean being about 4600 x 4600 units. Most players have to travel a fair distance across the map to reach the gas center usually anywhere from 500 to 2500 units. The furthest ever a recorded player dropped was about 5554 units away from the gas center, and the closest was 7 units. 
 
@@ -85,7 +87,8 @@ The chance to die in the gas increases with the distance a player lands from the
 
 In an average game less than 5% of players die while in the gas, which out of the 64 total, is around 3-4 players out of the whole lobby. This could mean the gas is not a huge threat but it could also mean that players have learned to avoid it. Either way this is far less than I initially expected. It makes sense since you can almost always outrun the gas while rolling and during the first few rings it deals very little damage, and you can easily out heal it.
 
-<img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="300"/>
+![](docs/boxplot7.png) | ![](docs/line2.png)
+:-: | :-:
 
 How far away a player drops appears to have little influence on the final ranking. The only exception are the people who died first, who tend to be the people who dropped earlier and closer to the edge of the island near the start of the game and as a result are further away on average but not by much. 
 
@@ -95,23 +98,27 @@ NOTE: Gas deaths are counted if the player happened to be standing in the gas wh
 
 ### Drop times
 
-<img src="./docs/boxplot2.png" width="400" height="300"/> <img src="./docs/boxplot1.png" width="400" height="300"/> 
+![](docs/boxplot2.png) | ![](docs/boxplot1.png)
+:-: | :-: 
 
 To little surprise every rank has a wide distribution of when people choose to jump and when they subsequently land. The only definitive trends are towards the lower and higher ranks. The lower ranks are the players who died the earliest in the game, and were the ones who got into fights first, so they must have landed sooner than most, and the data confirms. In the middling ranks the times plateau until reaching the last few ranks where players jump slightly sooner. This is pure speculation but I would expect this is a result of higher ranking players being more experienced and less hesitant when choosing a place to land. The data also shows a clear maximum and minimum amount of time that can be spent dropping which is a good sign for the integrity of the data.
 
-<img src="./docs/line1.png" width="400" height="300"/> <img src="./docs/boxplot3.png" width="400" height="300"/>
+![](docs/line1.png) | ![](docs/boxplot3.png)
+:-: | :-: 
 
 An average player drops around 21 seconds after the match starts, and lands 33 seconds after the match starts. Though the lowest ranking players who jump early on in the match bring down this average considerably. The game also has a mechanic where you can fall faster to reach the ground before other players. As expected it follows a similar trend with the lowest ranking players typically dropping the fastest and spending the least time in the air.
 
 ### Distances travelled
 
-<img src="./docs/boxplot5.png" width="400" height="300"/> <img src="./docs/boxplot6.png" width="400" height="300"/> 
+![](docs/boxplot5.png) | ![](docs/boxplot6.png)
+:-: | :-: 
 
 The distance travelled increases consistently with the ranking of the player. This makes sense as players who survive longer will travel further and further as the gas pushes them to another part of the map. Velocity on the other hand tells a much more interesting story. It reflects how the game plays out for different groups of players, the lowest ranking players die quickly and do not tend to travel very far, instead getting into a fight early on. Middle ranking players tend to travel a lot further as a result of the gas pushing them often far across the map. And as the rings get smaller less travelling is required and it becomes more a competition of holding on to the limited space left instead of travelling across the map meaning the highest ranking players will move slower on average, as the game becomes more and more about defending territory. 
 
 NOTE: The distance travelled is calculated as a straight line from their landing point to their death point.
 
-<img src="./docs/boxplot8.png" width="400" height="300"/> <img src="./docs/bar3.png" width="300" height="300"/>
+![](docs/boxplot8.png) | ![](docs/bar3.png)
+:-: | :-: 
 
 The distance to map center and gas center seem to have very little influence on rank. The only players who are noticeably further from the map center are the lowest ranking because they likely dropped early towards the edge of the island as implied by the drop statistics. The average rank vs distance to the gas center is consistently around 32 which is the average rank for a player in a game of 64 players, so it plays little part in the final rank.
  
@@ -139,7 +146,8 @@ Similarly this map tells us a lot about player behavior. We can make out roads o
 
 This is more a confirmation of previous findings but most players tend to drop somewhere around the map center. Even the individual lines of players dropping from a flight can be discerned.
 
-<img src="./docs/densitymap5.png" width="400" height="400"/><img src="./docs/densitymap6.png" width="400" height="400"/>
+![](docs/densitymap5.png) | ![](docs/densitymap6.png)
+:-: | :-: 
 
 Players later on in the game die significantly more so it makes sense that many of the deaths are toward the center of the map, where the gas ends. I would have expected more players to die on the outskirts of the map due to gas deaths. Maybe they are killed by players looking for an easy kill or they come back before the gas reaches them. Either way it runs counter to what I postulated earlier about gas deaths vs distance being inflated by inactive players. 
 
@@ -147,7 +155,8 @@ As for the gas center distribution I expect this has to do with how the gas ring
 
 ### Rank determinism
 
-<img src="./docs/densitymap4.png" width="400" height="400"/><img src="./docs/heatmap2.png" width="400" height="400"/>
+![](docs/densitymap4.png) | ![](docs/heatmap2.png)
+:-: | :-: 
 
 The winner distribution looks at a glance very similar to the overall player distribution and while there are differences I would chalk those up to the smaller sample size of winners. As for the heatmap of average ranks is very noisy and largely inconclusive due to the limited sample size per region make of it what you will.
 

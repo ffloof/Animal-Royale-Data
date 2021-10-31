@@ -1,5 +1,6 @@
 
 async function analyze(files){
+    //Convert json data to objects
     let data = []
     for (f of files) {
         let match = JSON.parse(await f.text())
@@ -7,8 +8,10 @@ async function analyze(files){
         data.push(match)
     }
 
+    //Run checks on data and print errors to console
     verify(data)
 
+    //Resize divs that plots will be displayed in
     for(node of document.body.children) {
         if(node.nodeName == "DIV"){
             node.style.height = "900px"
@@ -16,6 +19,7 @@ async function analyze(files){
         }
     }
 
+    //Plot everything
     line_time_dropped_vs_rank(data)
     line_gas_death_by_rank(data)
     line_time_alive_vs_rank(data)

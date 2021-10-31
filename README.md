@@ -13,14 +13,13 @@
 
 ## Introduction
 
-
 I wanted to study player behavior in a battle royale style game that pits many players against each other and tries to see who will be the last survivor among them. I wrote a program that automatically joined games and watched them recording player data. After running it for the past few weeks I amassed a considerable amount of data from over 500+ games. 
 
 <img src="./docs/densitymapcrop.png" width="400" height="400"/> <img src="./docs/gamemap.png" width="400" height="400"/>
 
 ## Data Collection
 
-Data collection was handled by two programs, one that collected the data by reading values straight from the games memory, while the other would automatically join games and avoid getting kicked for inactivity while trying to have a minimal impact on the other players. Each game's data gets stored into a json file which has the following fields.
+Data collection was handled by two programs, one that collected the data by reading values straight from the games memory, while the other would automatically join games and avoid getting kicked for inactivity while trying to have minimal impact on the other players. Each game's data gets stored into a json file which has the following fields.
 
 ```javascript
 "version": uint, //version field was added in v2
@@ -59,11 +58,11 @@ Player {
 
 ## Data Sanitation
 
-Due to the nature of how memory is deallocated after each game, and how the game engine handles player data, occasionally data was misrecorded, or recorded null bytes. As a result `check.js` is used to screen all the data, in an attempt to verify its validity. It logs the name and date of each file being analyzed and below will log any errors in the data.
+Due to the nature of how memory is deallocated after each game, and how the game engine handles player data, occasionally data was misrecorded, or recorded null bytes. As a result `check.js` is used to screen the data, in an attempt to ensure its validity. It logs the name and date of each file being analyzed and below will log any errors in the data.
 
 ![](docs/console.png?raw=true)
 
-It does various checks like verifying the order of deaths, making sure they are within the span of the game, checking player positions to ensure they are valid and other miscellaneous checks. Through this I was able to weed out any contaminated data sets. I have separated the data into three sets.
+It does various checks like verifying the order of deaths, making sure they are within the time span of the game, checking player positions to ensure they are valid and other miscellaneous checks. Through this I was able to weed out any contaminated data sets. I have separated the data into three sets.
 
 - `./data/clean/*` All the data(v2 and v3) that I am using in my analysis
 - `./data/dirty/*` All the data that was filtered out because it set off various flags while being verified
@@ -77,21 +76,22 @@ I did not go into this project with any particular hypothesis to test. I just wa
 
 <img src="./docs/bar1.png" width="400" height="400"/> <img src="./docs/bar2.png" width="400" height="400"/>
 
-Players tend to disperse a fair distance away from the final gas circle with 90% dropping at least 1000 units away from the final gas circle center. The area the player can land on the map including the ocean being about 4600 x 4600 units. From corner to corner this is about 6500 units however since the gas ring's center always has to be on land in practice the furthest a recorded player dropped was about 5400 units away from the gas.
+The area the player can land on the map including the ocean being about 4600 x 4600 units. Most players have to travel a fair distance across the map to reach the gas center usually anywhere from 500 to 2500 units. The furthest ever a recorded player dropped was about 5554 units away from the gas center, and the closest was 7 units. 
 
-![](docs/gamemapscale.png?raw=true)
+For scale each grid square on the map is 575 x 575 units.
+![](docs/gamemap.png?=true)
 
-The chance to die in the gas increases with the distance a player lands from the center. You could attribute this to the longer distance making it harder to escape the gas. However, in practice the percentage of deaths is likely inflated by inactive players. Inactive players automatically drop when the flight reaches the edge of the world and as a result they will often be far from the gas center, and since they are inactive they will die to the gas when it reaches them. In an average game less than 5% of players die while in the gas, which out of the 64 total, is around 3-4 players.
+The chance to die in the gas increases with the distance a player lands from the center. You could attribute this to the longer distance making it harder to escape the gas and that certainly is involved. However, in practice the percentage of deaths is likely inflated by inactive players, who automatically drop when the flight reaches the edge of the world. As a result they will be far from the gas center, and since they are inactive they will die to the gas when it reaches them. 
 
-This could mean the gas is not a huge threat but it could also mean that players have learned to avoid it. Either way only about 5% of players died while in the gas which is far less than I initially expected. It makes sense since you can almost always outrun the gas while rolling with the sword out and during the first few rings it does very little damage, and you can easily out heal it.
+In an average game less than 5% of players die while in the gas, which out of the 64 total, is around 3-4 players out of the whole lobby. This could mean the gas is not a huge threat but it could also mean that players have learned to avoid it. Either way this is far less than I initially expected. It makes sense since you can almost always outrun the gas while rolling and during the first few rings it deals very little damage, and you can easily out heal it.
 
 <img src="./docs/boxplot7.png" width="400" height="300"/> <img src="./docs/line2.png" width="400" height="300"/>
 
 How far away a player drops appears to have little influence on the final ranking. The only exception are the people who died first, who tend to be the people who dropped earlier and closer to the edge of the island near the start of the game and as a result are further away on average but not by much. 
 
-The percentage of players who die to gas increases greatly as the game goes on. This makes sense as many players die before the first ring appears. Even inactive players in a remote region of the map can survive for a considerable amount of time. And since the gas deals more damage with every consecutive ring it makes sense that it would be much more dangerous later on as players are fighting for a very limited amount of space.
+The percentage of players who die to gas increases greatly as the game goes on. This makes sense as many players die before the first gas ring appears. Even inactive players in a remote region of the map can survive for a considerable amount of time. And since the gas deals more damage with every consecutive ring it makes sense that it would be much more dangerous later on as players are fighting for a very limited amount of space.
 
-NOTE: gas deaths are counted if the player happened to be standing in the gas when they died, they need not have died from the gas itself.
+NOTE: Gas deaths are counted if the player happened to be standing in the gas when they died, they need not have died from the gas itself.
 
 ### Drop times
 
@@ -151,13 +151,13 @@ As for the gas center distribution I expect this has to do with how the gas ring
 
 The winner distribution looks at a glance very similar to the overall player distribution and while there are differences I would chalk those up to the smaller sample size of winners. As for the heatmap of average ranks is very noisy and largely inconclusive due to the limited sample size per region make of it what you will.
 
-NOTE: spots where no players landed on the heatmap were filled as 64(red).
+NOTE: Spots where no players landed on the heatmap were filled as 64(red).
 
 ## Conclusion
 
 This was my October 2021 project, it was mostly me getting my feet wet in data engineering and a bit of data analysis. I do not expect that I will be updating this project or collecting more data. I was contemplating adding features like weapon and kill data but my attempts at it were horribly buggy, but maybe I will revisit it at some point.
 
-Unfortunately I cannot release the actual data gathering program as the process. Reverse engineering the game to pull data about other players is already a grey area. With the information it collects you could use very similar methods to write cheats for the game and I do not want to enable that.
+Unfortunately I cannot release the actual data gathering program. The process of reverse engineering the game to pull data about other players is already a grey area. With the information it collects you could use very similar methods to write cheats for the game and I do not want to enable that.
 
 Hopefully for whatever data science related project I try my hand at next I can make some models rather than just stop at a very basic analysis.
 
@@ -179,4 +179,4 @@ Calendar of when game data was recorded
 
 ## How To Use
 
-Download the repository and open index.html in your browser. Select the json files (shift click on two, highlight multiple files, or select all with CTRL + A) of the games you want to analyze and it will output all the plots for you.
+Download the repository and open index.html in your browser. Select the json files (shift click on two, highlight multiple files, or select all with CTRL + A) of the games you want to analyze and it will output all the plots for you. The plots are generated using plotly js so feel free to reference there documentation if you want to make your own or modify the existing ones.

@@ -155,8 +155,11 @@ NOTE: spots where no players landed on the heatmap were filled as 64(red)
 
 ## Conclusion
 
+This was my October 2021 project, it was mostly me getting my feet wet in data engineering and a bit of data analysis. I dont expect that I'll be updating this project or collecting more data. I was contemplating adding features like weapon and kill data but my attempts at it were horribly buggy, but maybe I will revisit it at some point.
 
+Unfortunately I can't release the actual data gathering program as the process. Reverse engineering the game to pull data about other players is already a grey area. With the information it collects you could use very similar methods to write cheats for the game and I don't want to enable that. 
 
+Hopefully for whatever data science related project I try my hand at next I can make some models rather than just stop at a very basic analysis.
 
 ## Calendar
 

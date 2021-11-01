@@ -90,9 +90,9 @@ In an average game less than 5% of players die while in the gas, which out of th
 ![](docs/boxplot7.png) | ![](docs/line2.png)
 :-: | :-:
 
-How far away a player drops appears to have little influence on the final ranking. The only exception are the people who died first, who tend to be the people who dropped earlier and closer to the edge of the island near the start of the game and as a result are further away on average but not by much. 
+How far away a player drops appears to have little influence on the final ranking. The only exception are the people who died first, who tend to be the people who dropped earlier and closer to the edge of the island near the start of the game and as a result are further away on average. 
 
-The percentage of players who die to gas increases greatly as the game goes on. This makes sense as many players die before the first gas ring appears. Even inactive players in a remote region of the map can survive for a considerable amount of time. And since the gas deals more damage with every consecutive ring it makes sense that it would be much more dangerous later on as players are fighting for a very limited amount of space.
+The percentage of players who died to gas increases greatly as the game goes on. This makes sense as many players die before the first gas ring appears. Even inactive players in a remote region of the map can survive for a considerable amount of time. And since the gas deals more damage with every consecutive ring it makes sense that it would be much more dangerous later on as players are fighting for a very limited amount of space.
 
 NOTE: Gas deaths are counted if the player happened to be standing in the gas when they died, they need not have died from the gas itself.
 
@@ -101,7 +101,7 @@ NOTE: Gas deaths are counted if the player happened to be standing in the gas wh
 ![](docs/boxplot2.png) | ![](docs/boxplot1.png)
 :-: | :-: 
 
-Every rank has a wide distribution of when people choose to jump and when they subsequently land. The only definitive trends are towards the lower and higher ranks. The lower ranks are the players who died the earliest in the game by getting into fights first, so they must have landed sooner than most, and the data confirms this. In the middling ranks the times plateau until reaching the last few ranks where players jump slightly sooner. This is pure speculation but I would expect this is a result of higher ranking players being more experienced and less hesitant when choosing a place to land. The data also shows a clear maximum and minimum amount of time that can be spent dropping which is a good sign for the integrity of the data.
+Every rank has a wide distribution of when players choose to jump and when they subsequently land. The only definitive trends are towards the lower and higher ranks. The lower ranks are the players who died the earliest in the game by getting into fights first, so they must have landed sooner than most, and the data confirms this. In the middling ranks the times plateau until reaching the last few ranks where players jump slightly sooner. This is pure speculation but I would expect this is a result of higher ranking players being more experienced and less hesitant when choosing a place to land. The data also shows a clear maximum and minimum amount of time that can be spent dropping which is a good sign for the integrity of the data.
 
 ![](docs/line1.png) | ![](docs/boxplot3.png)
 :-: | :-: 
@@ -113,31 +113,31 @@ An average player drops around 21 seconds after the match starts, and lands 33 s
 ![](docs/boxplot5.png) | ![](docs/boxplot6.png)
 :-: | :-: 
 
-The distance travelled increases consistently with the ranking of the player, as players who survive longer will travel further and further as the gas pushes them to another part of the map. Velocity on the other hand tells a much more interesting story. It reflects how the game plays out for different groups of players, the lowest ranking players die quickly and do not get the chance to travel very far, instead getting into a fight early on. Middle ranking players tend to travel a lot further as a result of the gas pushing them often far across the map. As the rings get smaller less travelling is required and it becomes more a competition of defending territory meaning the highest ranking players will move slower on average. 
+The distance travelled increases consistently with the ranking of the player, as players that survive longer travel further and further as the gas pushes them to around the map. Velocity on the other hand tells a much more interesting story. It reflects how the game plays out for different groups of players, the lowest ranking players die quickly and do not get the chance to travel very far, instead getting into a fight early on. Middle ranking players tend to travel a lot further as a result of the gas pushing them often far across the map. As the rings get smaller less travelling is required and it becomes more a competition of defending territory meaning the highest ranking players will move slower on average. 
 
 NOTE: The distance travelled is calculated as a straight line from their landing point to their death point.
 
 ![](docs/boxplot8.png) | ![](docs/bar3.png)
 :-: | :-: 
 
-The distance to map center and gas center seem to have very little influence on rank. The only players who are noticeably further from the map center are the lowest ranking because they likely dropped early towards the edge of the island as implied by the drop statistics. The average rank vs distance to the gas center is consistently around 32 which is the average rank for a player in a game of 64 players, so it plays little part in the final rank.
+The distance to map center and gas center seems to have very little impact on rank. The only players who are noticeably further from the map center are the lowest ranking because they likely dropped early towards the edge of the island as implied by the drop statistics. The average rank vs distance to the gas center is consistently around 32 which is the average rank for a player in a game of 64 players, so it plays little part in the final rank.
  
 ### Deaths
 
 ![](docs/line3.png) | ![](docs/boxplot4.png)
 :-: | :-: 
 
-The plots show the pacing of the game, and the rank 1 player shows the distribution of how long the game lasts. The average game lasts 385 seconds with the average player surviving 147 seconds. Most players do not even make it halfway through the duration of the game. This makes sense from a game design point of view as you would not want to pace the game in a way where most players survive through most of the game, and get invested just to all die in an unsatisfying massive final brawl with low stakes. You would rather want many to get culled early who can just queue for another game in turn lowering queue times for other players.
+The plots show the pace of the game, and the rank 1 player shows the distribution of how long the game lasts. The average game lasts 385 seconds with an average player not even surviving close to half of the game, 147 seconds. This makes sense from a game design point of view as it would be unsatisfying to die after investing minutes in the game doing nothing. You would rather want many players to get culled early on who can just queue for another game, and in turn lowering queue times for other players.
 
 NOTE: Rank 1 player does not die so the time is just the game length.
 
 ### Density Distributions
 
-These are what I am most proud of and what I was looking forward to seeing when I began this project. Many of the graphs support previous explanations I have brought up and they also show how accurate the gathered data really is with very finite details being discernable.
+I am really proud of how theses turned out and it was what I was looking forward to seeing when I began this project. Many of the graphs support previous explanations I have brought up and they also show how accurate the gathered data really is with very finite details being discernable.
 
 ![](docs/densitymap1.png?raw=true)
 
-It is clear that the most popular locations are the major structures especially towards the center of the map. Just from the drop markers you can make out the outlines of many of the major structures on the map. There is also a ring of inactive players who got dropped around the edge of the map in the ocean, which aligns with the other data.
+The most popular locations are the major structures towards the center of the map. Just from the drop markers you can make out the outlines of many of the major structures on the map. There is also a ring of inactive players who got dropped around the edge of the map in the ocean, which aligns with the other data.
 
 ![](docs/densitymap2.png?raw=true)
 
@@ -145,14 +145,14 @@ Similarly this map tells us a lot about player behavior. We can make out roads o
 
 ![](docs/densitymap3.png?raw=true)
 
-This is more a confirmation of previous findings but most players tend to drop somewhere around the map center. Even the individual lines of players dropping from a flight can be discerned.
+This is more a confirmation of previous findings but most players tend to drop somewhere around the center. Even the individual lines of players dropping from a flight can be discerned.
 
 ![](docs/densitymap5.png) | ![](docs/densitymap6.png)
 :-: | :-: 
 
-Players later on in the game die significantly more so it makes sense that many of the deaths are toward the center of the map, where the gas ends. I would have expected more players to die on the outskirts of the map due to gas deaths. Maybe they are killed by players looking for an easy kill or they come back before the gas reaches them. Either way it runs counter to what I postulated earlier about gas deaths vs distance being inflated by inactive players. 
+Later in the game players are more likely to die to the gas so it makes sense that many of the deaths are toward the center of the map, where the gas ends. I would have expected more players to die on the outskirts of the map due to gas deaths. Maybe they are killed by players looking for an easy kill or they come back before the gas reaches them. Either way it runs counter to what I postulated earlier about gas deaths vs distance being inflated by inactive players. 
 
-As for the gas center distribution I expect this has to do with how the gas ring's center has to always be on land, so this leads to the densest regions being towards the center though I do not have the mathematical expertise to prove this.  
+As for the gas center distribution I expect this is a result of the gas ring's center needing to always be on land, so this leads to the densest regions being towards the center. 
 
 ### Rank determinism
 

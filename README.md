@@ -1,6 +1,6 @@
 # Super Animal Royale Data
 
-//TODO: Include Sar Banner Image
+![](docs/sarbanner.jpg)
 
 ## Table of Contents 
 1. [Introduction](#introduction)
